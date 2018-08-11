@@ -24,9 +24,9 @@ public class S3PutObjectWithSignedUrl {
 	public static void main(String[] args) throws IOException {
 		AWSCredentials credentials = S3Controller.authenticateAWS();
 		AmazonS3 s3=S3Controller.getClient(credentials);
-		String bucketName = "blooper";
+		String bucketName = "<BucketName>";
 		String key = "keys.txt";
-		Path path = Paths.get("/home/local/ANT/amdhing/Downloads/keys.txt");
+		Path path = Paths.get("/home/local/XX/XX/Downloads/keys.txt");
 		
 		byte[] file = Files.readAllBytes(path);
 		

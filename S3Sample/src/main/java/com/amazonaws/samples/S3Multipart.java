@@ -31,7 +31,7 @@ public class S3Multipart {
             throw new AmazonClientException(
                     "Cannot load the credentials from the credential profiles file. " +
                     "Please make sure that your credentials file is at the correct " +
-                    "location (/home/local/ANT/amdhing/.aws/credentials), and is in valid format.",
+                    "location (/home/local/XX/XX/.aws/credentials), and is in valid format.",
                     e);
         }
         AmazonS3 s3 = AmazonS3ClientBuilder.standard()
@@ -40,12 +40,12 @@ public class S3Multipart {
                 .build();
         try {
         	
-    		String multipartFile= "/home/local/ANT/amdhing/Downloads/ubuntu-16.04.3-desktop-amd64.iso";
+    		String multipartFile= "/home/local/XX/XX/Downloads/ubuntu-16.04.3-desktop-amd64.iso";
 			File fileToUpload=convertFromMultiPart(multipartFile);
     		String key = Instant.now().getEpochSecond() + "_" + fileToUpload.getName();
     		
-    		s3.putObject(new PutObjectRequest("blooper", key, fileToUpload));
-    		GeneratePresignedUrlRequest generatePresignedUrlRequest = new GeneratePresignedUrlRequest("blooper", key);
+    		s3.putObject(new PutObjectRequest("<BucketName>", key, fileToUpload));
+    		GeneratePresignedUrlRequest generatePresignedUrlRequest = new GeneratePresignedUrlRequest("<BucketName>", key);
     		generatePresignedUrlRequest.setMethod(HttpMethod.GET);
     		generatePresignedUrlRequest.setExpiration(DateTime.now().plusYears(1).toDate());
     		

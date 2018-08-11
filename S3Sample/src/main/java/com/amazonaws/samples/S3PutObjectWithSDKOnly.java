@@ -23,9 +23,9 @@ import com.amazonaws.services.s3.model.UploadObjectRequest;
 
 public class S3PutObjectWithSDKOnly {
 
-	public static String bucketName = "blooper";
+	public static String bucketName = "<BucketName>";
 	public static String key = "keys.txt";
-    public static File file=new File("/home/local/ANT/amdhing/Downloads/keys.txt");
+    public static File file=new File("/home/local/XX/XX/Downloads/keys.txt");
 
 	
 	

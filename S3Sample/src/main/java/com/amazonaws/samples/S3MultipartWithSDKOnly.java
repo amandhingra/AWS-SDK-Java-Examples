@@ -26,7 +26,7 @@ public class S3MultipartWithSDKOnly {
             throw new AmazonClientException(
                     "Cannot load the credentials from the credential profiles file. " +
                     "Please make sure that your credentials file is at the correct " +
-                    "location (/home/local/ANT/amdhing/.aws/credentials), and is in valid format.",
+                    "location (/home/local/XX/XX/.aws/credentials), and is in valid format.",
                     e);
         }
         return credentials;
@@ -35,14 +35,14 @@ public class S3MultipartWithSDKOnly {
 	
 	public static void main(String[] args) {
 		AWSCredentials credentials = authenticateAWS();
-		String bucketName="blooper";
+		String bucketName="<BucketName>";
 	    long partSize=5*1024*1024;
 	    
         AmazonS3 s3 = AmazonS3ClientBuilder.standard()
                 .withCredentials(new AWSStaticCredentialsProvider(credentials))
                 .withRegion("us-west-2")
                 .build();
-        File file=new File("/home/local/ANT/amdhing/Downloads/ubuntu-16.04.3-desktop-amd64.iso");
+        File file=new File("/home/local/XX/XX/Downloads/ubuntu-16.04.3-desktop-amd64.iso");
         String key="Downloads/ubuntu-16.04.3-desktop-amd64.iso";
         long contentLength= file.length();
         long bytePosition = 0;
